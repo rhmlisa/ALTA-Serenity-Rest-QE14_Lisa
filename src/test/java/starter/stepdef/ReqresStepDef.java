@@ -13,6 +13,8 @@ import java.io.File;
 public class ReqresStepDef {
     @Steps
     ReqresAPI reqresAPI;
+
+    //Scenario 1
     @Given("Get list user with parameter page {int}")
     public void getListUserWithParameterPage(int page) {
         reqresAPI.getListUsers(page);
@@ -30,6 +32,7 @@ public class ReqresStepDef {
                 .statusCode(statusCode);
     }
 
+    //Scenario 2
     @Given("Create user with valid json {string}")
     public void createUserWithValidJson(String json) {
         File jsonFile = new File(Constants.REQ_BODY+json);
@@ -38,7 +41,30 @@ public class ReqresStepDef {
 
     @When("Send request create new user")
     public void sendRequestCreateNewUser() {
-        SerenityRest.when().post(ReqresAPI.CREATE_USER);
+        SerenityRest.when()
+                .post(ReqresAPI.CREATE_USER);
     }
 
+    //Scenario 3
+    @Given("Update user with valid json {string} and user id {int}")
+    public void updateUserWithValidJsonAndUserId(String json, int id) {
+        File jsonFile = new File(Constants.REQ_BODY+json);
+        reqresAPI.putUpdateUser(id, jsonFile );
+    }
+
+    @When("Send request update user")
+    public void sendRequestUpdateUser() {
+        SerenityRest.when()
+                .put(ReqresAPI.UPDATE_USER);
+    }
+
+    @Given("Delete user with valid user id {int}")
+    public void deleteUserWithValidUserId(int id) {
+        reqresAPI.deleteUser(id);
+    }
+
+    @When("Send request delete user")
+    public void sendRequestDeleteUser() {
+        SerenityRest.when().delete(ReqresAPI.DELETE_USER);
+    }
 }
