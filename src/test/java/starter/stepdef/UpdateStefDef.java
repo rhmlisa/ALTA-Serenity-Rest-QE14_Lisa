@@ -36,4 +36,10 @@ public class UpdateStefDef {
         File jsonFile = new File(Constants.REQ_BODY+json);
         reqresAPI.putUpdateUser(id, jsonFile );
     }
+
+    @Given("Update user with user id {int} without job on json {string}")
+    public void updateUserWithUserIdWithoutJobOnJson(int id, String json) {
+        File jsonFile = new File(Constants.REQ_BODY+json);
+        reqresAPI.putUpdateUser(id, jsonFile );
+    }
 }

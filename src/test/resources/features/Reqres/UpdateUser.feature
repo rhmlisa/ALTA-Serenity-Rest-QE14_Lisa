@@ -34,6 +34,6 @@ Feature: Update User
   #Update User Scenario 4
   @Tugas
   Scenario: Update User with valid user id without job on json
-    Given Update user with user id 1 without name on json "UpdateUserInvalid2.json"
+    Given Update user with user id 1 without job on json "UpdateUserInvalid2.json"
     When Send request update user
     Then Status code should be 400

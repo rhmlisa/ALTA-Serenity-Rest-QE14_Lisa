@@ -23,6 +23,12 @@ public class LoginStepDef {
                 .post(ReqresAPI.LOGIN);
     }
 
+    @Given("Post Login with unregistered email on json {string}")
+    public void postLoginWithUnregisteredEmailOnJson(String json) {
+        File jsonFile = new File(Constants.REQ_BODY+json);
+        reqresAPI.postLoginUser(jsonFile);
+    }
+
     @Given("Post Login with invalid json {string}")
     public void postLoginWithInvalidJson(String json) {
         File jsonFile = new File(Constants.REQ_BODY+json);

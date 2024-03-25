@@ -27,8 +27,14 @@ public class RegisterStepDef {
                 .post(ReqresAPI.REGISTER);
     }
 
-    @Given("Post Register user with invalid data on json {string}")
-    public void postRegisterUserWithInvalidDataOnJson(String json) {
+    @Given("Post Register user with invalid json {string}")
+    public void postRegisterUserWithInvalidJson(String json) {
+        File jsonFile = new File (Constants.REQ_BODY+json);
+        reqresAPI.postRegisterUser(jsonFile);
+    }
+
+    @Given("Post Register user with invalid email format {string}")
+    public void postRegisterUserWithInvalidEmailFormat(String json) {
         File jsonFile = new File (Constants.REQ_BODY+json);
         reqresAPI.postRegisterUser(jsonFile);
     }

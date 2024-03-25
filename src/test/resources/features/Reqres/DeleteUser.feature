@@ -30,9 +30,9 @@ Feature: Delete User
     When Send request delete user
     Then Status code should be 404
     Examples:
-      |                           | id    |
-      | alphabet                  | satu  |
-      | special char              | !@#$% |
-      | alphabet and special char | $thv$ |
+      | id    |
+      | satu  |
+      | !@#$% |
+      | $thv$ |
 
 

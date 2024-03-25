@@ -31,10 +31,10 @@ Feature: Get Single User
     When Send request get list single user
     Then Status code should be 404
     Examples:
-      |                           | id     |
-      | alphabet                  | kookie |
-      | special char              | @#$%^  |
-      | alphabet and special char | $jjk!  |
+      | id     |
+      | kookie |
+      | @#$%^  |
+      | $jjk!  |
 
 
 
